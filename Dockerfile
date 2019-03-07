@@ -2,11 +2,12 @@ FROM ubuntu:16.04
 MAINTAINER renoufa@vmware.com
 
 # Updated to all vSphere 6.5 tools by @lamw
+# Updated s/CLI/Perl-SDK/, Docker, docker-compose, go, pyvmomi, govc, powercli by @sygibson
 WORKDIR /root
 
 #### ---- Installer Files ---- ####
 
-ARG VSPHERE65_SDK_PERL=VMware-vSphere-CLI-6.5.0-4566394.x86_64.tar.gz
+ARG VSPHERE65_SDK_PERL=VMware-vSphere-Perl-SDK-6.5.0-4566394.x86_64.tar.gz
 ARG VSPHERE65_MGMT_SDK=VMware-vSphereSDK-6.5.0-4571253.zip
 ARG VSPHERE65_AUTOMATION_SDK_RUBY=VMware-vSphere-Automation-SDK-Ruby-6.5.0-4571906.zip
 ARG VSPHERE65_AUTOMATION_SDK_PYTHON=VMware-vSphere-Automation-SDK-Python-6.5.0-4571810.zip
@@ -16,24 +17,24 @@ ARG VSAN65_SDK_RUBY=vsan-sdk-65-ruby-4602587.zip
 ARG VSAN65_SDK_PYTHON=vsan-sdk-65-python-4602587.zip
 ARG VSAN65_SDK_JAVA=vsan-sdk-65-java-4602587.zip
 ARG VSAN65_SDK_PERL=vsan-sdk-65-perl-4602587.zip
-ARG VDDK65=VMware-vix-disklib-6.5.0-4604867.x86_64.tar.gz
-ARG OVFTOOl42=VMware-ovftool-4.2.0-4586971-lin.x86_64.bundle
+ARG VDDK65=VMware-vix-disklib-6.5.0-4604867.x86_64.zip
+ARG OVFTOOl42=VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
 ARG VMWARE_UTILS_INSTALLER=vmware-utils-install.sh
 
 ADD [ \
-  "$VSPHERE65_SDK_PERL", \  
-  "$VSPHERE65_MGMT_SDK", \
-  "$VSPHERE65_AUTOMATION_SDK_RUBY", \
-  "$VSPHERE65_AUTOMATION_SDK_PYTHON", \
-  "$VSPHERE65_AUTOMATION_SDK_PERL", \
-  "$VSPHERE65_AUTOMATION_SDK_JAVA", \
-  "$VSAN65_SDK_RUBY", \
-  "$VSAN65_SDK_PYTHON", \
-  "$VSAN65_SDK_JAVA", \
-  "$VSAN65_SDK_PERL", \
-  "$VDDK65", \
-  "$OVFTOOl42", \
-  "$VMWARE_UTILS_INSTALLER", \
+  "files/$VSPHERE65_SDK_PERL", \
+  "files/$VSPHERE65_MGMT_SDK", \
+  "files/$VSPHERE65_AUTOMATION_SDK_RUBY", \
+  "files/$VSPHERE65_AUTOMATION_SDK_PYTHON", \
+  "files/$VSPHERE65_AUTOMATION_SDK_PERL", \
+  "files/$VSPHERE65_AUTOMATION_SDK_JAVA", \
+  "files/$VSAN65_SDK_RUBY", \
+  "files/$VSAN65_SDK_PYTHON", \
+  "files/$VSAN65_SDK_JAVA", \
+  "files/$VSAN65_SDK_PERL", \
+  "files/$VDDK65", \
+  "files/$OVFTOOl42", \
+  "files/$VMWARE_UTILS_INSTALLER", \
   "/tmp/" \
 ]
 
