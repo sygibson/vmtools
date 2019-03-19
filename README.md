@@ -4,11 +4,26 @@ Docker Image to deploy various VMware and open source related tools to manage a 
 
 ## Table of Contents
 
+* [Changes](#changes)
 * [Why?](#why)
 * [What?](#what)
 * [How?](#how)
 * [Build Container](#build-container)
 * [Run Container](#run-container)
+
+## Changes
+
+sygibson:
+
+This repo contains a modified coy of the original 'lamw/vmware-utils' repo.  It has been modified to fix some dependencies, update the VMware tools installed, and other optimizations.  In addtion, there is a new (rogue) 'get-files.sh' which gets the necessary artifacts and stages them in the 'files/' directory.
+
+TLDR;
+```console
+git clone https://github.com/sygibson/vmtools
+cd vmtools
+docker build -t sygibson/vmtools .
+docker run --rm -it sygibson/vmtools
+```
 
 ## Why
 
@@ -103,7 +118,7 @@ Now you are ready to build your container! For individual Docker Containers, ple
 2. Run the following command to build the Container and provide a tag for this particular build, an example would be lamw/vmware-utils
 
 ```console
-$ docker build -t lamw/vmware-utils .
+$ docker build -t sygibson/vmtools .
 ```
 
 ## Run Uber Container
@@ -111,7 +126,7 @@ $ docker build -t lamw/vmware-utils .
 Once the Container has been successfully built, you can run it using the following command:
 
 ```console
-$ docker run --rm -it lamw/vmware-utils
+$ docker run --rm -it sygibson/vmtools
 ```
 
 At this point you are now logged into the Container that you have just built and you can see a few of the tools that have been installed
