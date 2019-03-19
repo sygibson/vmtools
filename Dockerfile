@@ -4,7 +4,7 @@ MAINTAINER renoufa@vmware.com
 # Updated to all vSphere 6.5 tools by @lamw
 # Updated s/CLI/Perl-SDK/, Docker, docker-compose, go, pyvmomi, govc, powercli by @sygibson
 WORKDIR /root
-ARG FILESDIR= files
+ARG FILESDIR=files
 
 #### ---- Installer Files ---- ####
 
