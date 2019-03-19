@@ -19,6 +19,7 @@ GOVER=go1.12.linux-amd64.tar.gz
 #### ---- Install Package Dependencies ---- ####
 
 apt-get update && \
+apt-get install -yq --no-install-recommends apt-utils && \
 apt-get install -yq --no-install-recommends \
 sudo \
 build-essential \
