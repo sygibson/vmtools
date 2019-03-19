@@ -4,6 +4,7 @@ MAINTAINER renoufa@vmware.com
 # Updated to all vSphere 6.5 tools by @lamw
 # Updated s/CLI/Perl-SDK/, Docker, docker-compose, go, pyvmomi, govc, powercli by @sygibson
 WORKDIR /root
+FILESDIR files
 
 #### ---- Installer Files ---- ####
 
@@ -22,19 +23,19 @@ ARG OVFTOOl42=VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
 ARG VMWARE_UTILS_INSTALLER=vmware-utils-install.sh
 
 ADD [ \
-  "files/$VSPHERE65_SDK_PERL", \
-  "files/$VSPHERE65_MGMT_SDK", \
-  "files/$VSPHERE65_AUTOMATION_SDK_RUBY", \
-  "files/$VSPHERE65_AUTOMATION_SDK_PYTHON", \
-  "files/$VSPHERE65_AUTOMATION_SDK_PERL", \
-  "files/$VSPHERE65_AUTOMATION_SDK_JAVA", \
-  "files/$VSAN65_SDK_RUBY", \
-  "files/$VSAN65_SDK_PYTHON", \
-  "files/$VSAN65_SDK_JAVA", \
-  "files/$VSAN65_SDK_PERL", \
-  "files/$VDDK65", \
-  "files/$OVFTOOl42", \
-  "files/$VMWARE_UTILS_INSTALLER", \
+  "$FILESDIR/$VSPHERE65_SDK_PERL", \
+  "$FILESDIR/$VSPHERE65_MGMT_SDK", \
+  "$FILESDIR/$VSPHERE65_AUTOMATION_SDK_RUBY", \
+  "$FILESDIR/$VSPHERE65_AUTOMATION_SDK_PYTHON", \
+  "$FILESDIR/$VSPHERE65_AUTOMATION_SDK_PERL", \
+  "$FILESDIR/$VSPHERE65_AUTOMATION_SDK_JAVA", \
+  "$FILESDIR/$VSAN65_SDK_RUBY", \
+  "$FILESDIR/$VSAN65_SDK_PYTHON", \
+  "$FILESDIR/$VSAN65_SDK_JAVA", \
+  "$FILESDIR/$VSAN65_SDK_PERL", \
+  "$FILESDIR/$VDDK65", \
+  "$FILESDIR/$OVFTOOl42", \
+  "$FILESDIR/$VMWARE_UTILS_INSTALLER", \
   "/tmp/" \
 ]
 
