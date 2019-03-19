@@ -9,6 +9,7 @@ VSAN65_SDK_RUBY=vsan-sdk-65-ruby-4602587.zip
 apt-get update && \
 apt-get install -yq --no-install-recommends \
 build-essential \
+sudo \
 gcc \
 gcc-multilib \
 libssl-dev \

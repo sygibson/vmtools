@@ -10,6 +10,7 @@ VSAN65_SDK_PERL=vsan-sdk-65-perl-4602587.zip
 apt-get update && \
 apt-get install -yq --no-install-recommends \
 build-essential \
+sudo \
 gcc \
 gcc-multilib \
 uuid \

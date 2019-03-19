@@ -9,6 +9,7 @@ VSAN65_SDK_PYTHON=vsan-sdk-65-python-4602587.zip
 apt-get update && \
 apt-get install -yq --no-install-recommends \
 build-essential \
+sudo \
 gcc \
 gcc-multilib \
 libssl-dev \

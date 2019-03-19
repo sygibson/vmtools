@@ -4,6 +4,7 @@
 apt-get update && \
 apt-get install -yq --no-install-recommends \
 ca-certificates \
+sudo \
 git \
 curl \
 vim && \

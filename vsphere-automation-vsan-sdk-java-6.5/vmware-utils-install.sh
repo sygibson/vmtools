@@ -12,6 +12,7 @@ apt-get install -yq --no-install-recommends \
 ca-certificates \
 default-jdk \
 unzip \
+sudo \
 vim && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /var/tmp/*

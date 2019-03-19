@@ -20,6 +20,7 @@ GOVER=go1.12.linux-amd64.tar.gz
 
 apt-get update && \
 apt-get install -yq --no-install-recommends \
+sudo \
 build-essential \
 gcc \
 gcc-multilib \
@@ -33,6 +34,7 @@ e2fsprogs \
 libarchive-zip-perl \
 libcrypt-ssleay-perl \
 libclass-methodmaker-perl \
+libmodule-build-perl \
 libdata-dump-perl \
 libsoap-lite-perl \
 git \
