@@ -4,7 +4,7 @@ MAINTAINER renoufa@vmware.com
 # Updated to all vSphere 6.5 tools by @lamw
 # Updated s/CLI/Perl-SDK/, Docker, docker-compose, go, pyvmomi, govc, powercli by @sygibson
 WORKDIR /root
-FILESDIR files
+ARG FILESDIR= files
 
 #### ---- Installer Files ---- ####
 
@@ -35,7 +35,7 @@ ADD [ \
   "$FILESDIR/$VSAN65_SDK_PERL", \
   "$FILESDIR/$VDDK65", \
   "$FILESDIR/$OVFTOOl42", \
-  "$FILESDIR/$VMWARE_UTILS_INSTALLER", \
+  "$VMWARE_UTILS_INSTALLER", \
   "/tmp/" \
 ]
 
