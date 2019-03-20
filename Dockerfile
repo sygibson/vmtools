@@ -42,6 +42,7 @@ ADD [ \
 RUN /tmp/$VMWARE_UTILS_INSTALLER
 
 ENV PERL5LIB=/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/sdk:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/runtime:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/samples
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Run Bash when the image starts
 CMD ["/bin/bash"]
