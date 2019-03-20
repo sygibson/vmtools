@@ -16,11 +16,6 @@ OVFTOOl42=VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
 
 GOVER=go1.12.linux-amd64.tar.gz
 
-#### ---- Install Digital Rebar Provision pieces---- ####
-
-curl -s https://raw.githubusercontent.com/digitalrebar/provision/9d70a4999bc6890063a18a7a395f0e9580127ec2/tools/drpjoin -o /usr/bin/drpjoin
-chmod 755 /usr/bin/drpjoin
-
 #### ---- Install Package Dependencies ---- ####
 
 apt-get update && \
@@ -70,6 +65,11 @@ rm -rf /var/lib/apt/lists/* /var/tmp/*
 
 gem install savon
 pip install --upgrade pip
+
+#### ---- Install Digital Rebar Provision pieces---- ####
+
+curl -s https://raw.githubusercontent.com/digitalrebar/provision/9d70a4999bc6890063a18a7a395f0e9580127ec2/tools/drpjoin -o /usr/bin/drpjoin
+chmod 755 /usr/bin/drpjoin
 
 #### ---- Install vSphere CLI/SDK for Perl 6.5 ---- ####
 
