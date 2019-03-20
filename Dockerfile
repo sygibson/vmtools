@@ -21,6 +21,7 @@ ARG VSAN65_SDK_PERL=vsan-sdk-65-perl-4602587.zip
 ARG VDDK65=VMware-vix-disklib-6.5.0-4604867.x86_64.zip
 ARG OVFTOOl42=VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle
 ARG VMWARE_UTILS_INSTALLER=vmware-utils-install.sh
+ARG DEBIAN_FRONTEND=noninteractive
 
 ADD [ \
   "$FILESDIR/$VSPHERE65_SDK_PERL", \
@@ -42,7 +43,6 @@ ADD [ \
 RUN /tmp/$VMWARE_UTILS_INSTALLER
 
 ENV PERL5LIB=/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/sdk:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/runtime:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/samples
-ENV DEBIAN_FRONTEND=noninteractive
 
 # Run Bash when the image starts
 CMD ["/bin/bash"]
