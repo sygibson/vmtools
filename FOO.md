@@ -1,11 +1,17 @@
 # NetWrangler
 
 [Introduction](#Introduction)
+
 [Building NetWrangler](#building-netwrangler)
+
 [Cross Compiling](#cross-compiling)
+
 [Contributing](#contributing)
+
 [Input Configuration File Format](#input-configuration-file-format)
+
 [License](#license)
+
 
 ## Introduction
 NetWrangler is a one-shot network interface configuration utility that
