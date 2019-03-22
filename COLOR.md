@@ -2,14 +2,14 @@
 
 ![Cloudia the ColorDemo](images/colordemo.png)
 
-[](#introduction)
-[](#usage)
-[](#feature-in-videos)
-[](#0perating-colordemo)
-[](#which-drp-endpoint-are-you-talking-to)
-[](#notes)
-[](#bundle-operations)
-[](#readme-as-documentation-meta-info)
+* [Introduction](#introduction)
+* [Usage](#usage)
+* [Video Demo](#feature-in-videos)
+* [Operating Color Demo](#0perating-colordemo)
+* [Which DRP Endpoint Are You Talking To?](#which-drp-endpoint-are-you-talking-to)
+* [NOTES](#notes)
+** [Bundle Operations](#bundle-operations)
+** [README.md as Documentation Meta Info](#readme-as-documentation-meta-info)
 
 ## Introduction
 For [Digital Rebar Provision](http://rebar.digital), which is maintained by
