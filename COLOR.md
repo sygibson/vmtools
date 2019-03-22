@@ -8,6 +8,8 @@
 * [Operating Color Demo](#operating-color-demo)
 * [Which DRP Endpoint Are You Talking To?](#which-drp-endpoint-are-you-talking-to)
 * [NOTES](#notes)
+  + [Not All Content Types Represented](#not-all-content-types-represented)
+  + [Other Content Examples](#other-content-examples)
   + [Bundle Operations](#bundle-operations)
   + [README.md as Documentation Meta Info](#readme-as-documentation-meta-info)
 
@@ -77,6 +79,31 @@ Make sure you set the Endpoint (and Username/Password if changed from defaults)
 with the appropriate options.  Run `drpcli` by itself to get help output.
 
 ## Notes
+
+### Not All Content Types Represented
+
+Digital Rebar Provision content has many parts and pieces.  There are several
+types of content that are not represented in the Color Demo.  Empty directories
+are not allowed in Git repos, so we can't provide blank directories for your
+reference.  DRP `bundle` operations can't deal with errant files in a directory
+structure (like "`.gitempty`").
+
+For content types not represented here (for example "`bootenvs`"), simply create
+an empty directory of that name, to create content of that type.  Use some of
+the examples from other content packs (see [Other Content Examples](#other-content-examples)
+for more inspiration.
+
+### Other Content Examples
+
+We at [RackN](https://rackn.com) regularly "crib" or "borrow" from existing
+content examples we've created already.  You can too!  To check out a much more
+advanced use of a Git repo to host multiple content packs, see:
+
+  * https://github.com/digitalrebar/provision-content
+
+Note that the "`content/`" directory contains the actual "**DRP Community Content**",
+bundle, while other content packs exist in the subdirectories "`krib`", 
+"`sledgehammer-builder`", etc.
 
 ### Bundle Operations
 The contents bundle operation is very sensitve to errant/unexpected files
