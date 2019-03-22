@@ -1,97 +1,101 @@
-# NetWrangler
+# Color Demo Example and Training Content
 
-Table of Contents
-* [Introduction](#Introduction)
-* [Building NetWrangler](#building-netwrangler)
-* [Cross Compiling](#cross-compiling)
-* [Contributing](#contributing)
-* [Input Configuration File Format](#input-configuration-file-format)
-* [License](#license)
+![Cloudia the ColorDemo](images/colordemo.png)
 
+[](#introduction)
+[](#usage)
+[](#feature-in-videos)
+[](#0perating-colordemo)
+[](#which-drp-endpoint-are-you-talking-to)
+[](#notes)
+[](#bundle-operations)
+[](#readme-as-documentation-meta-info)
 
 ## Introduction
-NetWrangler is a one-shot network interface configuration utility that
-is mostly compatible with https://netplan.io configuration files.  Key
-differences are:
+For [Digital Rebar Provision](http://rebar.digital), which is maintained by
+[RackN](https://rackn.com).
 
-* It only supports systemd-networkd and old-style Redhat network
-  configurations as output formats.  Debian style is a planned on, and
-  NetworkManager style is a lower priority.
-* No support for configuring wireless interfaces.  This tool is mainly
-  intended for servers and other devices that do not have wireless
-  interfaces.
-* No daemons, dynamic configuration, or other long-lived operations.
-  This tool is intended to be run as part of device provisioning,
-  where we expect to set the desired network interface config once and
-  then forget about it until it is time to reprovision the box.
-* No support for hierarchical config files.  We use the netplan.io
-  YAML for its schema, not to allow additional layered customization.
-* No support for NIC renaming or MAC address reassignment.  Support
-  may be added at a later date.
-* No support for per-interface backend renderers.  This just doesn't
-  seem like a good idea if you don;t care about dynamic interface
-  reconfiguration.
+This `colordemo` repo is an example / training content pack designed to help
+new users of [Digital Rebar Provision](http://rebar.digital) to understand how
+content packs can be authored and maintained in a Git (or other Source Code
+Control System) management system.
 
-## Building NetWrangler
-
-NetWrangler is a Go Lang project, and is simple to build.  Please
-install Go version 1.10 or newer (older versions may work but have
-not been tested).  See https://golang.org/doc/install
-
-In the future, compiled builds may be provided.
-
-These examples work on Linux or Mac.  You may need to adjust directories
-appropriately for your Go environment.  Check out the source code:
+## Usage
+To install the `colordemo` content pack, use the following command:
 
 ```shell
-go get github.com/rackn/netwrangler
+git clone https://github.com/digitalrebar/colordemo.git
+cd ./content
+drpcli contents bundle ../colordemo-v1.yaml
 ```
 
-This will checkout the code and (generally) put it in:
-
-`$HOME/go/src/github.com/rackn/netwrangler`
-
-To build it, change to the netwrangler directory and run the build script,
-and copy the binary to your path or remote system:
+To inject/install it to a Digital Rebar Provision endpoint, use:
 
 ```shell
-cd $HOME/go/src/github.com/rackn/netwrangler
-tools/build.sh
-cp cmd/netwrangler /usr/local/bin
+drpcli contents create ../colordemo-v1.yaml
 ```
 
-## Cross Compiling
+If you make changes to the local files (updates, edits, fixes, etc), and
+want to update the already installed conent pack, rebundle the changes,
+then update as follows:
 
-Standard Go Lang cross compiling methodology works here, see:
-https://golang.org/doc/install/source#environment
+```shell
+# edit files as desired
+drpcli contents bundle ../colordemo-v2.yaml
+drpcli contents update colordemo ../colordemo-v2.yaml
+```
 
-Example of compiling for Linux 64bit, when on macOS:
+## Feature in Videos!
 
-`env GOOS=linux GOARCH=amd64 tools/build.sh`
+* Creating Content: https://youtu.be/79Y-3IOguZk
+* Bundling: https://youtu.be/JUyzFNkLyZU
 
-## Contributing
+## Operating Colordemo
 
-We encourage contributions to help expand and enhance the functionality
-of the NetWrangler project.  We operate in a standard "Pull Request" (PR)
-git workflow model.  If you have some changes you'd like to make, we
-ask that you drop by and chat with us via Slack, sign up at:
+You must have a machine that is currently running an Agent (`runner-service`);
+the _Sledgehammer_ (discovery) bootenv meets this criteria, or the
+`runner-service` has been run on an installed OS.  Verify the agent is running
+with `ps -ef | grep 'drpcli processjobs' | grep -v grep"`.
 
-https://rackn.com/support/slack/
+Add the `colordemo-example` profile to the machine, a cloned version of the
+profile with your changes to the _Params_, or the bare params directly to
+the machine.
 
-Please put "netwrangler" in the "I'm interested in" field.
+Set the machine to the `colordemo` _Workflow_.  The "**i**" (information) column
+should change to the set color and icon.  To rerun the workflow, you must
+first clear the workflow (remove) the current `colordemo` workflow, then
+re-set it on the machine.
 
-For small fixes and enhancements, please go ahead and submit a PR, with
-sufficient comments for us to understand what your intentions are.
+## Which DRP Endpoint are you talking to?
 
-If you would like to add a new configuration method (for example, add
-full NetworkManager (really? why? :) ) support, please drop us a note
-and let us know, we'd appreciate it.
+Remember that the `drpcli` client tool by default connects to the address
+and port specified as follows:
 
-## Input Configuration File Format
+  `https://127.0.0.1:8092`
 
-The configuration input is via the [netplan.io](https://netplan.io/) DSL.
-Please refer to it for full details.
+Make sure you set the Endpoint (and Username/Password if changed from defaults)
+with the appropriate options.  Run `drpcli` by itself to get help output.
 
-## License
+## Notes
 
-NetWrangler is [Apacke License 2.0](https://github.com/rackn/netwrangler/blob/master/LICENSE).
+### Bundle Operations
+The contents bundle operation is very sensitve to errant/unexpected files
+in the directory structure.  Anything that is NOT a meta file (eg a file
+with `.\_Something.meta` or a YAML file will be misinterpreted and an
+error will occur on the bundle operation, like:
+
+```shell
+drp@pixie:./colordemo$ drpcli contents bundle colordemo-v1.yaml
+Error: Failed to load: No idea how to decode LICENSE into dr-provision-releases
+```
+
+(`.gitignore` will also similarly cause an error).  Make sure your directory
+is clean from errant hidden/dot files, things like `LICENSE`, `README.md`, etc.
+
+For this reason, the `colordemo` contents have been moved in to the subdirectory
+named `content/`.
+
+### README as Documentation Meta Info
+
+This README is included (by symbolic reference) as `content/.\_Documentation.meta`
+file.  The Documentation meta file can use RST formatted text.
