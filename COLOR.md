@@ -22,6 +22,20 @@ new users of [Digital Rebar Provision](http://rebar.digital) to understand how
 content packs can be authored and maintained in a Git (or other Source Code
 Control System) management system.
 
+The directory structure (in the "`content/`" directory) closely relates to the
+different parts of composable content that are represented in Content Bundles
+(or Packs).  Each directory contains unique content pieces for each of the
+types of content.
+
+Directories that don't exist here (for example "`bootenvs`") can be created if
+you need to build content of that type.
+
+All Workflow elements in Content are executed as a "`job`" on the Machine side.
+This is why you must have a Runner (agent) running.  DRP supports "`plugins`"
+which are compiled binaries, that execute on the DRP Endpoint side, on behalf
+of the Machine.  This Color Demo content does NOT relate to Plugins, only
+content executed on the Machine as Workflow jobs.
+
 ## Usage
 To install the `colordemo` content pack, use the following command:
 
@@ -59,7 +73,7 @@ the _Sledgehammer_ (discovery) bootenv meets this criteria, or the
 `runner-service` has been run on an installed OS.  Verify the agent is running
 with `ps -ef | grep 'drpcli processjobs' | grep -v grep"`.
 
-Add the `colordemo-example` profile to the machine, a cloned version of the
+Add the `colordemo-example` profile to the machine; a cloned version of the
 profile with your changes to the _Params_, or the bare params directly to
 the machine.
 
