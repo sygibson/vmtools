@@ -4,12 +4,12 @@
 
 * [Introduction](#introduction)
 * [Usage](#usage)
-* [Video Demo](#feature-in-videos)
+* [Feature in Videos](#feature-in-videos)
 * [Operating Color Demo](#0perating-colordemo)
 * [Which DRP Endpoint Are You Talking To?](#which-drp-endpoint-are-you-talking-to)
 * [NOTES](#notes)
-** [Bundle Operations](#bundle-operations)
-** [README.md as Documentation Meta Info](#readme-as-documentation-meta-info)
++ [Bundle Operations](#bundle-operations)
++ [README.md as Documentation Meta Info](#readme-as-documentation-meta-info)
 
 ## Introduction
 For [Digital Rebar Provision](http://rebar.digital), which is maintained by
@@ -50,7 +50,7 @@ drpcli contents update colordemo ../colordemo-v2.yaml
 * Creating Content: https://youtu.be/79Y-3IOguZk
 * Bundling: https://youtu.be/JUyzFNkLyZU
 
-## Operating Colordemo
+## Operating Color Demo
 
 You must have a machine that is currently running an Agent (`runner-service`);
 the _Sledgehammer_ (discovery) bootenv meets this criteria, or the
