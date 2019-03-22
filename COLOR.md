@@ -5,11 +5,11 @@
 * [Introduction](#introduction)
 * [Usage](#usage)
 * [Feature in Videos](#feature-in-videos)
-* [Operating Color Demo](#0perating-colordemo)
+* [Operating Color Demo](#operating-color-demo)
 * [Which DRP Endpoint Are You Talking To?](#which-drp-endpoint-are-you-talking-to)
 * [NOTES](#notes)
-+ [Bundle Operations](#bundle-operations)
-+ [README.md as Documentation Meta Info](#readme-as-documentation-meta-info)
+  + [Bundle Operations](#bundle-operations)
+  + [README.md as Documentation Meta Info](#readme-as-documentation-meta-info)
 
 ## Introduction
 For [Digital Rebar Provision](http://rebar.digital), which is maintained by
