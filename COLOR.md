@@ -10,10 +10,13 @@
 * [NOTES](#notes)
   + [Not All Content Types Represented](#not-all-content-types-represented)
   + [Other Content Examples](#other-content-examples)
-  + [Bundle Operations](#bundle-operations)
+  + [Bundle Operation Errors](#bundle-operation-errors)
   + [README.md as Documentation Meta Info](#readme-as-documentation-meta-info)
+  + [Talk to Us!](#talk-to-us)
+
 
 ## Introduction
+
 For [Digital Rebar Provision](http://rebar.digital), which is maintained by
 [RackN](https://rackn.com).
 
@@ -36,7 +39,9 @@ which are compiled binaries, that execute on the DRP Endpoint side, on behalf
 of the Machine.  This Color Demo content does NOT relate to Plugins, only
 content executed on the Machine as Workflow jobs.
 
+
 ## Usage
+
 To install the `colordemo` content pack, use the following command:
 
 ```shell
@@ -61,10 +66,12 @@ drpcli contents bundle ../colordemo-v2.yaml
 drpcli contents update colordemo ../colordemo-v2.yaml
 ```
 
+
 ## Feature in Videos!
 
 * Creating Content: https://youtu.be/79Y-3IOguZk
 * Bundling: https://youtu.be/JUyzFNkLyZU
+
 
 ## Operating Color Demo
 
@@ -82,6 +89,7 @@ should change to the set color and icon.  To rerun the workflow, you must
 first clear the workflow (remove) the current `colordemo` workflow, then
 re-set it on the machine.
 
+
 ## Which DRP Endpoint are you talking to?
 
 Remember that the `drpcli` client tool by default connects to the address
@@ -92,7 +100,9 @@ and port specified as follows:
 Make sure you set the Endpoint (and Username/Password if changed from defaults)
 with the appropriate options.  Run `drpcli` by itself to get help output.
 
+
 ## Notes
+
 
 ### Not All Content Types Represented
 
@@ -107,6 +117,7 @@ an empty directory of that name, to create content of that type.  Use some of
 the examples from other content packs (see [Other Content Examples](#other-content-examples)
 for more inspiration.
 
+
 ### Other Content Examples
 
 We at [RackN](https://rackn.com) regularly "crib" or "borrow" from existing
@@ -119,7 +130,9 @@ Note that the "`content/`" directory contains the actual "**DRP Community Conten
 bundle, while other content packs exist in the subdirectories "`krib`", 
 "`sledgehammer-builder`", etc.
 
-### Bundle Operations
+
+### Bundle Operation Errors
+
 The contents bundle operation is very sensitve to errant/unexpected files
 in the directory structure.  Anything that is NOT a meta file (eg a file
 with `.\_Something.meta` or a YAML file will be misinterpreted and an
@@ -136,7 +149,22 @@ is clean from errant hidden/dot files, things like `LICENSE`, `README.md`, etc.
 For this reason, the `colordemo` contents have been moved in to the subdirectory
 named `content/`.
 
+
 ### README as Documentation Meta Info
 
 This README is included (by symbolic reference) as `content/.\_Documentation.meta`
 file.  The Documentation meta file can use RST formatted text.
+
+
+### Talk to Us!
+
+The [RackN Team](https://rackn.com) uses Slack to communicate with our
+[Digital Rebar Provision](http://rebar.digital) community. If you haven't already
+signed up for our Community Slack, you can do so at:
+
+  * https://rackn.com/support/slack/
+
+We look forward to helping you with your provisioning automation journey towards
+a fully self sustained Continuously Delivered Data Center journey.
+
+
