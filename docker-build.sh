@@ -12,6 +12,6 @@ echo "##"
 echo "############################################################"
 echo ""
 
-exec > ${STDOUT_LOG} 2> >(tee ${STDERR_LOG} >&2)
+#exec > ${STDOUT_LOG} 2> >(tee ${STDERR_LOG} >&2)
 set -x
-docker build ${EXTRA_BUILD_OPTIONS} -t sygibson/vmtools . 
+docker build ${EXTRA_BUILD_OPTIONS} -t sygibson/vmtools .  > ${STDOUT_LOG} 2> >(tee ${STDERR_LOG} >&2)
