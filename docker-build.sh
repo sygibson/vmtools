@@ -1,8 +1,8 @@
 #!/bin/bash
 
 EXTRA_BUILD_OPTIONS=${1:-""}
-STDOUT_LOG=/tmp/stdout.$$.txt
-STDERR_LOG=/tmp/stderr.$$.txt
+STDOUT_LOG=/tmp/docker-build-stdout.$$.txt
+STDERR_LOG=/tmp/docker-build-stderr.$$.txt
 
 echo "############################################################"
 echo "##"

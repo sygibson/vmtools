@@ -59,9 +59,7 @@ libcurl3 \
 libunwind8 \
 libicu55 \
 wget \
-vim && \
-apt-get clean && \
-rm -rf /var/lib/apt/lists/* /var/tmp/*
+vim
 
 gem install savon
 pip install --upgrade pip
@@ -195,11 +193,14 @@ git clone https://github.com/lamw/vghetto-scripts /root/script-repos/vghetto-scr
 git clone https://github.com/lamw/pyvmomi-community-samples /root-script-repos/pyvmomi-community-samples
 
 
-# apt-get remove all shit
-apt-get -y purge build-essential \
-gcc \
-gcc-multilib
-
+# apt-get remove all the mess left over
+apt-get -y purge build-essential gcc gcc-multilib
 apt-get autoremove -y
-apt-get clean
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+apt-get -q clean
+rm -rf \
+  /var/lib/apt/lists/* \
+  /tmp/* \
+  /var/tmp/* \
+  /var/log/dpkg.log \
+  /var/log/alternatives.log \
+  /var/log/apt/*

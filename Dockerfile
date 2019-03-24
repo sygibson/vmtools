@@ -1,6 +1,9 @@
-FROM ubuntu:16.04
-MAINTAINER renoufa@vmware.com
+FROM jlesage/baseimage:ubuntu-16.04-v2.4.1
+MAINTAINER sygibson@gmail.com
+# base container image documentation
+# https://github.com/jlesage/docker-baseimage
 
+# original authored by  renoufa@vmware.com and based on "vmware-utils"
 # Updated to all vSphere 6.5 tools by @lamw
 # Updated s/CLI/Perl-SDK/, Docker, docker-compose, go, pyvmomi, govc, powercli by @sygibson
 WORKDIR /root
@@ -42,7 +45,19 @@ ADD [ \
 
 RUN /tmp/$VMWARE_UTILS_INSTALLER
 
+# Copy the start script.
+COPY startapp.sh /startapp.sh
+
+# DRP will be used for the "drpjoin" process, this needs to be
+# set to the DRP IP address, as reachable from the container,
+# the default setting below will most certainly not work
+#
+# example:  docker run -e DRP="https:/10.10.10.10:8092" ... 
+ENV DRP="https://127.0.0.1:8092"
+ENV APP_NAME="vmtools"
+ENV USER_ID="0"
+ENV GROUP_ID="0"
 ENV PERL5LIB=/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/sdk:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/runtime:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/samples
 
 # Run Bash when the image starts
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
