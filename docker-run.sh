@@ -11,7 +11,7 @@
 ###
 DRP=${1:-"$RS_ENDPOINT"}
 [[ -z "$DRP" ]] && read -p "Enter DRP Endpoint: " RS
-[[ -n "$DRPJOIN_SKIP" ]] && DRPJOIN="" || DRPJOIN="DRP=$RS"
+[[ -n "$DRPJOIN_SKIP" ]] && DRPJOIN="" || DRPJOIN="DRP=$DRP"
 
 set -x
 docker run -e $DRPJOIN --rm sygibson/vmtools

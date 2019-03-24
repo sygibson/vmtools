@@ -54,7 +54,7 @@ COPY startapp.sh /startapp.sh
 #
 # example:  docker run -e DRP="https:/10.10.10.10:8092" ... 
 ENV DRP="https://127.0.0.1:8092"
-ENV APP_NAME="vmtools"
+#ENV APP_NAME="vmtools"
 ENV USER_ID="0"
 ENV GROUP_ID="0"
 ENV PERL5LIB=/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/sdk:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/lib/runtime:/root/VMware-vSphere-Automation-SDK-Perl-6.5.0/client/samples

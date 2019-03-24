@@ -2,6 +2,7 @@
 # get vmwtools files/ blobs
 
 set -e
+set -x
 
 BASE="http://get.rebar.digital/artifacts/vmtools"
 TOOLS="VMware-ovftool-4.2.0-5965791-lin.x86_64.bundle

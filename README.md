@@ -2,6 +2,10 @@
 
 Docker Image to deploy various VMware and open source related tools to manage a VMware environment
 
+This image has been updated to support Digital Rebar Provision "drpjoin" process to allow it to be managed by DRP Workflow.  Insure the ENV var "DRP" is set to the IP:Port pair of the DRP Endpoint responsible for manaing this container.  See the "docker-run.sh" helper script for a start up example.
+
+This container is build on the "long-lived" container images built and maintained on Github at jlesage/docker-baseimage.
+
 ## Table of Contents
 
 * [Changes](#changes)

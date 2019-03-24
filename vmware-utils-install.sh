@@ -68,6 +68,21 @@ pip install --upgrade pip
 
 curl -s https://raw.githubusercontent.com/digitalrebar/provision/9d70a4999bc6890063a18a7a395f0e9580127ec2/tools/drpjoin -o /usr/bin/drpjoin
 chmod 755 /usr/bin/drpjoin
+mkdir -p /etc/services.d/drpjoin/log
+echo '#!/usr/bin/execlineb -P
+# see s6 doc for above: https://github.com/just-containers/s6-overlay
+# drpjoin needs "DRP" ENV var set to start correctly see "docker-run.sh"
+# for an example
+/usr/bin/drpjoin
+' > /etc/services.d/drpjoin/run
+
+echo '#!/usr/bin/execlineb -S0
+s6-svscanctl -t /var/run/s6/services
+' > /etc/services.d/drpjoin/finish
+
+echo '#!/bin/sh
+exec logutil-service /tmp/
+' > /etc/services.d/drpjoin/log/run
 
 #### ---- Install vSphere CLI/SDK for Perl 6.5 ---- ####
 
