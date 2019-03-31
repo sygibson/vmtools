@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -x
+
+# if RS_ENDPOINT is passed to us, it's wrong, and we need to
+# modify it to the HTTP file server - this is bad form as we
+# ASS-u-me the http file server port is set to default
+
+DRP=$(echo $1 | sed -e 's/https:/http:/g' -e 's/:8092/:8091/g')
+curl --insecure -fsSL "$DRP/machines/join-up.sh" | bash --
+
+# need to send machine object destroy otherwise dangling containers
+# sit around in the Machines object space making a mess all over
+# the place

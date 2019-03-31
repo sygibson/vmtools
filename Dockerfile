@@ -9,6 +9,15 @@ MAINTAINER sygibson@gmail.com
 WORKDIR /root
 ARG FILESDIR=files
 
+
+ENV APP_NAME="vmtools"
+
+# Copy the start script.
+COPY drpjoin /usr/bin/drpjoin
+RUN chmod 755 /usr/bin/drpjoin
+RUN add-pkg curl
+
+
 #### ---- Installer Files ---- ####
 
 ARG VSPHERE65_SDK_PERL=VMware-vSphere-Perl-SDK-6.5.0-4566394.x86_64.tar.gz
